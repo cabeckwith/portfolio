@@ -69,16 +69,137 @@
 
         <div id="Database" class="tabcontent">
               <h2>Database Project 1</h2>
+              <h1>Create Database</h1>
+    <code>
+        CREATE DATABASE realestate_database;<br>
+        USE realestate_database;
+    </code>
+
+    <h1>Insert Data into Owner Table</h1>
+    <code>
+        INSERT INTO owner (ESSN, Custnumber, name)<br>
+        VALUES<br>
+        &emsp;(123456789, 1, 'John Smith'),<br>
+        &emsp;(987654321, 2, 'Jane Doe'),<br>
+        &emsp;(555555555, 3, 'Bob Johnson'),<br>
+        &emsp;(111111111, 4, 'Emily Davis');
+    </code>
+
+    <h1>Insert Data into Agent Table</h1>
+    <code>
+        INSERT INTO agent (agent_id, name, ssn, bdate)<br>
+        VALUES<br>
+        &emsp;(1, 'Michael Brown', 123456789, '1980-05-10'),<br>
+        &emsp;(2, 'Sarah Johnson', 987654321, '1975-08-25'),<br>
+        &emsp;(3, 'David Wilson', 555555555, '1988-01-15'),<br>
+        &emsp;(4, 'Lisa Lee', 111111111, '1995-11-20');
+    </code>
+
+    <h1>Insert Data into Property Table</h1>
+    <code>
+        INSERT INTO property (property_id, address, agent_id, transaction_id)<br>
+        VALUES<br>
+        &emsp;(1, '123 Main St', 1, 1),<br>
+        &emsp;(2, '456 Elm St', 2, 2),<br>
+        &emsp;(3, '789 Oak St', 3, 3),<br>
+        &emsp;(4, '321 Pine St', 4, 4);
+    </code>
+
+    <h1>Insert Data into Transactions Table</h1>
+    <code>
+        INSERT INTO transactions (transaction_id, property_id, ESSN, sale_price, transaction_date)<br>
+        VALUES<br>
+        &emsp;(1, 1, 123456789, 100000.00, '2022-01-01'),<br>
+        &emsp;(2, 2, 987654321, 150000.00, '2022-02-15'),<br>
+        &emsp;(3, 3, 555555555, 200000.00, '2022-03-10'),<br>
+        &emsp;(4, 4, 111111111, 120000.00, '2022-04-20');
+    </code>
               <h2>Database Project 2</h2>
+              <h2>Connor Beckwith - PL/PQL Assignment 2</h2>
+    <p>Date: 4/27/23</p>
+    <pre>
+        <code>
+DECLARE
+  type grade_array is varray(5) of varchar2(1);
+  grades grade_array := grade_array('A', 'B', 'C', 'D', 'F');
+  grade_count integer := 0;
+BEGIN
+  FOR i IN 1..grades.count LOOP
+    SELECT count(*) INTO grade_count FROM gradeReport WHERE grade = grades(i);
+    IF grade_count > 0 THEN
+      DBMS_OUTPUT.PUT_LINE('There are a total of ' || grade_count || ' ' || grades(i) || '''s');
+    ELSE
+      DBMS_OUTPUT.PUT_LINE('No student made a ' || grades(i));
+    END IF;
+  END LOOP;
+END;
+        </code>
+    </pre>
+    <p>This program calculates the sum of the first ten even numbers using a loop.</p>
+    <p>The result is 110.</p>
+    <h3>3. For Loop Program:</h3>
+    <pre>
+        <code>
+DECLARE
+  sm binary_integer :=0;
+BEGIN
+  FOR i IN 1..10 LOOP
+    sm := sm + 2*i;
+  END LOOP;
+  dbms_output.put_line('sum= ' || sm || '.');
+END;
+        </code>
+    </pre>
+    <p>Result: 110</p>
+    <h3>Why Loop Program:</h3>
+    <pre>
+        <code>
+DECLARE
+  sm binary_integer :=0;
+  i binary_integer :=0;
+BEGIN
+  WHILE i < 10 LOOP
+    i := i + 1;
+    sm := sm + 2*i;
+  END LOOP;
+  dbms_output.put_line('sum= ' || sm || '.');
+END;
+        </code>
+    </pre>
+    <p>Result: 110</p>
         </div>
 
         <div id="Programming" class="tabcontent">
               <h2>Programming Project 1</h2>
+            
               <h2>Programming Project 2</h2>
         </div>
 
         <div id="SoftSkills" class="tabcontent">
               <h2>Soft Skills Project 1</h2>
+              <h1>Sound Checklist</h1>
+              <h2>Arrival and Setup</h2>
+              <ul>
+                  <li>Arrive at station 5 minutes before practice starts. (Sunday AM 8:40, Sunday PM 3:40, Wednesday 6:10)</li>
+                  <li>Turn on power rack. (under camera)</li>
+                  <li>Turn on the board on the back right of the board.</li>
+                  <li>Click on the small mute mics button on the right hand side of the board and it will light up orange.</li>
+                  <li>Now you can flip the three switches on the back of the wall in the sound booth.</li>
+              </ul>
+              <h2>Things to Keep in Mind</h2>
+              <ul>
+                  <li>Get the band to sound full. You should always be able to hear what the instruments are doing and feel the music behind the singers.</li>
+                  <li>Make sure drums are loud and punchy.</li>
+                  <li>Bass should feel big and fat during big moments of the song but shouldn't be a distraction during quiet moments.</li>
+                  <li>The track should supplement the band and be heard but also not take over the song.</li>
+                  <li>The singers should be mixed equally so that you can hear all three parts but not be able to pick out individual voices within the parts.</li>
+                  <li>Soloist should be turned up to be heard clearly during their solos and while leading.</li>
+                  <li>Listen to singers feedback to get their monitors right during practice.</li>
+                  <li>Pulpit mic should always be a priority. (Make sure the speaker can always be heard and that the mic is "clipping" and distorting.)</li>
+                  <li>Volume of music should be good and full but not too loud where it is uncomfortable.</li>
+                  <li>If you need to leave your station for any reason, just ask someone who has run sound before to take your place. If it is during preaching, just set the pulpit mic to a good level and leave it. Replace any dead AA batteries in the mics. (Batteries in cabinet.)</li>
+                  <li>Make sure that the computer is unmuted before and after church for music but that it is also muted during service.</li>
+              </ul>
         </div>
 
         <div id="Capstone" class="tabcontent">
