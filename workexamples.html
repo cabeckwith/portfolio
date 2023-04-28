@@ -180,8 +180,135 @@ END;
 
         <div id="Programming" class="tabcontent">
               <h2>Programming Project 1</h2>
+            <p>Here is my code from a tic tac toe game that I implemented.</p>
+            <!DOCTYPE html>
+<html>
+<head>
+	<title>Tic Tac Toe</title>
+</head>
+<body>
+	<h1>Tic Tac Toe</h1>
+	<p>Here is the code for a basic implementation of the game:</p>
+	<pre>
+		import java.util.Scanner;
+
+		public class TicTacToe {
+		    public static void main(String[] args) {
+		        Scanner scanner = new Scanner(System.in);
+		        char[][] board = new char[3][3];
+		        char player = 'X';
+		        int row, col;
+
+		        // Initialize the board with empty spaces
+		        for (int i = 0; i < 3; i++) {
+		            for (int j = 0; j < 3; j++) {
+		                board[i][j] = ' ';
+		            }
+		        }
+
+		        // Main game loop
+		        while (true) {
+		            // Print the board
+		            System.out.println("-------------");
+		            for (int i = 0; i < 3; i++) {
+		                System.out.print("| ");
+		                for (int j = 0; j < 3; j++) {
+		                    System.out.print(board[i][j] + " | ");
+		                }
+		                System.out.println();
+		                System.out.println("-------------");
+		            }
+
+		            // Get the player's move
+		            System.out.println("Player " + player + "'s turn. Enter row and column: ");
+		            row = scanner.nextInt();
+		            col = scanner.nextInt();
+
+		            // Check if the move is valid
+		            if (row < 0 || row > 2 || col < 0 || col > 2 || board[row][col] != ' ') {
+		                System.out.println("Invalid move. Please try again.");
+		                continue;
+		            }
+
+		            // Make the move
+		            board[row][col] = player;
+
+		            // Check if the game is over
+		            if (checkWin(board, player)) {
+		                System.out.println("Player " + player + " wins!");
+		                break;
+		            } else if (checkDraw(board)) {
+		                System.out.println("Draw!");
+		                break;
+		            }
+
+		            // Switch to the other player
+		            player = (player == 'X') ? 'O' : 'X';
+		        }
+		    }
+
+		    // Check if the player has won
+		    public static boolean checkWin(char[][] board, char player) {
+		        // Check rows and columns
+		        for (int i = 0; i < 3; i++) {
+		            if (board[i][0] == player && board[i][1] == player && board[i][2] == player) {
+		                return true;
+		            }
+		            if (board[0][i] == player && board[1][i] == player && board[2][i] == player) {
+		                return true;
+		            }
+		        }
+
+		        // Check diagonals
+		        if (board[0][0] == player && board[1][1] == player && board[2][2] == player) {
+		            return true;
+		        }
+		        if (board[0][2] == player && board[1][1] == player && board[2][0] == player) {
+		            return true;
+		        }
+
+		        // No win condition found
+		        return false;
+		    }
+
+		    // Check if the game is a draw
+		    public static boolean checkDraw(char[][] board) {
+		        //
+        </pre>
             
               <h2>Programming Project 2</h2>
+              <pre>
+                import java.util.Random;
+                import java.util.Scanner;
+                
+                public class NumberGuessingGame {
+                    public static void main(String[] args) {
+                        Random random = new Random();
+                        int secretNumber = random.nextInt(100) + 1;
+                        int numGuesses = 0;
+                        
+                        Scanner scanner = new Scanner(System.in);
+                        System.out.println("Welcome to the Number Guessing Game!");
+                        
+                        while (true) {
+                            System.out.print("Guess a number between 1 and 100: ");
+                            int guess = scanner.nextInt();
+                            numGuesses++;
+                            
+                            if (guess < secretNumber) {
+                                System.out.println("Too low, try again!");
+                            } else if (guess > secretNumber) {
+                                System.out.println("Too high, try again!");
+                            } else {
+                                System.out.println("Congratulations, you guessed the number in " + numGuesses + " guesses!");
+                                break;
+                            }
+                        }
+                        
+                        scanner.close();
+                    }
+                }
+                    </pre>
         </div>
 
         <div id="SoftSkills" class="tabcontent">
